@@ -1,6 +1,5 @@
 package io.quarkus.sample;
 
-import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.common.mapper.TypeRef;
 import org.apache.http.HttpStatus;
@@ -18,7 +17,6 @@ import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.core.Is.is;
 
 @QuarkusTest
-@QuarkusTestResource(DatabaseResource.class)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class TodoResourceTest {
 
