@@ -1,35 +1,22 @@
 # TODO Applications with Quarkus
 
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/cescoffier/quarkus-todo-app/Build)
-
-## Database
-
-Run:
+## Build/Tag/Push Docker Image
 
 ```bash
-docker run --ulimit memlock=-1:-1 -it --rm=true --memory-swappiness=0 \
-    --name postgres-quarkus-rest-http-crud -e POSTGRES_USER=restcrud \
-    -e POSTGRES_PASSWORD=restcrud -e POSTGRES_DB=rest-crud \
-    -p 5432:5432 postgres:13.1
+quarkus build -Dquarkus.container-image.build=true
 ```
 
-## Imperative Application
-
+Check the created image:
 ```bash
-cd quarkus-todo
-mvn quarkus:dev
+docker image ls
 ```
 
-Open: http://localhost:8080/
-
-## Reactive Application
-
-This version uses Hibernate Reactive, RESTEasy Reactive and Mutiny.
-
+Tag the image:
 ```bash
-cd quarkus-todo-reactive
-mvn quarkus:dev
+docker tag <image-tag-from-previous-output> europe-west3-docker.pkg.dev/pulumi-challenge/cloudland/quarkus-todo-app:1.0
 ```
 
-Open: http://localhost:8080/
-
+Push the image:
+```bash
+docker push europe-west3-docker.pkg.dev/pulumi-challenge/cloudland/quarkus-todo-app:1.0
+```
