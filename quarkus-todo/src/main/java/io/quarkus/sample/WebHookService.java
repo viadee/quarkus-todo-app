@@ -7,7 +7,7 @@ import org.eclipse.microprofile.rest.client.inject.RestClient;
 @ApplicationScoped
 public class WebHookService {
   @RestClient
-  private WebHookHttpService webHookHttpService;
+  WebHookHttpService webHookHttpService;
 
   public void callWebHook(String message) {
     var messageObject = WebHookMessage.builder().message(message).build();
