@@ -5,6 +5,7 @@ import static org.mockito.Mockito.verify;
 
 import javax.inject.Inject;
 
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 
@@ -14,10 +15,11 @@ import io.quarkus.test.junit.mockito.InjectMock;
 @QuarkusTest
 public class WebHookServiceTest {
   @Inject
-  private WebHookService webHookService;
+  WebHookService webHookService;
 
   @InjectMock
-  private WebHookHttpService webHookHttpService;
+  @RestClient
+  WebHookHttpService webHookHttpService;
 
   @Test
   void testCallWebHook() {
