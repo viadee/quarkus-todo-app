@@ -1,7 +1,5 @@
 name: build release and push to ECR
-on:
-  release:
-    types: [prereleased, released]
+on: [push, pull_request]
 jobs:
   build_and_push:
     runs-on: ubuntu-latest
