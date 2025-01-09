@@ -2,6 +2,10 @@ name: Build
 
 on: [push, pull_request]
 
+defaults:
+  run:
+    working-directory: quarkus-todo
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,7 +18,7 @@ jobs:
           distribution: temurin
           cache: maven
       - name: Build with Maven
-        run: mvn -B clean verify -Pnative -Dquarkus.native.container-build=true
+        run: mvn -B clean verify -Dquarkus.native.container-build=true
 
 
 
