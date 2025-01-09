@@ -49,6 +49,6 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64,linux/arm64
-          push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
+          push: true
+          tags: 1.0
           labels: ${{ steps.meta.outputs.labels }}
